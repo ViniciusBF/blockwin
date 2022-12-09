@@ -66,10 +66,9 @@ Para efetuar o download da Klever extension:
 Esta demonstração serve para mostrar de forma prática como se conectar aos provedores suportados pela Extensão Klever 
 ```bash
 https://github.com/klever-io/klever-extension-demo
-​
 ```
 
-# Imagens da extensão
+## Imagens da extensão
 ![Hackaton T22 - Wallet01](./readmeImg/walletImg.jpg) <br>
 
 ![Hackaton T22 - Wallet02](./readmeImg/walletImg2.jpg)
@@ -79,20 +78,19 @@ https://github.com/klever-io/klever-extension-demo
 - As apresentações do projeto iniciarão às 15:00 do domingo. Serão aceitas apenas submissões feitas até às 14:59.
 ​
 # Instruções para entregar seu projeto
-​<details>
-<summary><strong>‼ Antes de começar a desenvolver</strong></summary>
+
+## ‼ Antes de começar a desenvolver
+
 - Faça o fork desse repositório
 - Adicione @nato-re como colaborador com a `role` mainteiner no repositório de fork criado
 - Leia atentamente o readme e tudo pronto para começar a desenvolver
 
-</details>
-# 🛠 Como desenvolver
+## 🛠 Como desenvolver
 ​
-Este repositório não conta com branches para cada grupo, e sim deve ser criado um repositório de fork, o código final deve ficar na branch principal deste repositório. Portanto o código deve ser desenvolvido a partir do fork.
-
-
+Este repositório não conta com branches para cada grupo, e sim deve ser criado um repositório de fork.
+O código final deve ficar na branch principal deste repositório. Portanto o código deve ser desenvolvido a partir do fork.
 ​
-# Sugestões de aplicações
+# **Sugestões** de aplicações
 ​
 ## ⚽️ Jogos
 
