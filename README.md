@@ -9,17 +9,12 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 
 
 ## 🚫 <strong>Regras </strong>
-> 01 - <br>
-> 02 - <br>
-> 03 - <br>
-> 04 - <br>
-> 05 - <br>
-> 06 - <br>
-> 07 - <br>
-> 08 - <br>
-> 09 - <br>
-> 10 - <br>
-
+- Ao participar deste evento você concorda em:
+> 01 - Respeitar o Código de Conduta da Trybe<br>
+> 02 - Não violar os princípios de fair play<br>
+> 03 - Não  pedir ou receber apoio de qualquer pessoa fora do evento<br>
+> 04 -  É esperada a contribuição de todos os membros do grupo no desenvolvimento<br>
+> 05 -Todos os membros do grupo devem, obrigatoriamente, estar na apresentação do projeto no dia 11/12.<br>
 <br>
 
 # <strong>📗 Sumário</strong>
