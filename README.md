@@ -1,6 +1,6 @@
 # 🔆 <strong>Boas vindas ao repositório do Hackathon T22!</strong>
 
-![Hackaton T22](./readmeImg/06-LOGO.png)
+![Hackaton T22](./img/06-LOGO.png)
 
 ## 🛑 <strong>Termos de uso</strong>
 ​
@@ -14,7 +14,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 > 02 - Não violar os princípios de fair play<br>
 > 03 - Não  pedir ou receber apoio de qualquer pessoa fora do evento<br>
 > 04 -  É esperada a contribuição de todos os membros do grupo no desenvolvimento<br>
-> 05 -Todos os membros do grupo devem, obrigatoriamente, estar na apresentação do projeto no dia 11/12.<br>
+> 05 - Todos os membros do grupo devem, obrigatoriamente, estar na apresentação do projeto no dia 11/12.<br>
 <br>
 
 # <strong>📗 Sumário</strong>
