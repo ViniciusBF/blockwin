@@ -184,6 +184,8 @@ social
 ```bash
 http://testnet.kleverscan.org/
 ```
+```bash
+http://testnet.kleverscan.org/
+```
 - Aqui você consegue visualizar todas as transações da na rede Testnet
 </details>
-<details>
