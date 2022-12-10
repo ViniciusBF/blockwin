@@ -30,7 +30,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 - ## ☑️ [Como desenvolver](#como-desenvolver)
   * [Sugestões de aplicações](#sugestões-de-aplicações)
 ​<br><br>
-- ## ☑️ [Perguntas Frequentes](#perguntas-frequentes)
+- ## ☑️ [Links Úteis](#links-uteis)
 ​
 # 📝 Entregáveis
 ​
@@ -177,4 +177,13 @@ social
 - Exibir uma mensagem de agradecimento
 </details>
 
+## Links Úteis
 
+<details>
+  <summary><strong> Testnet </strong></summary><br />
+```bash
+http://testnet.kleverscan.org/
+```
+- Aqui você consegue visualizar todas as transações da na rede Testnet
+</details>
+<details>
