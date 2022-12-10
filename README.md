@@ -59,11 +59,12 @@ Para efetuar o download da Klever extension:
 3. Crie seu login seguindo os comandos da extensão.
 ```
 ## Imagens da extensão
-<p float="left">
-  <img src="./img/chromeExtensionImg1.jpg" width="100" />
-  <img src="./img/chromeExtensionImg2.jpg" width="100" /> 
-  <img src="./img/chromeExtensionImg3.jpg" width="100" />
-</p>
+
+![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg) <br>
+
+![Hackaton T22 - Wallet02](./img/chromeExtensionImg2.jpg) <br>
+
+![Hackaton T22 - Wallet02](./img/chromeExtensionImg3.jpg) <br>
 
 
 ### Criando sua Wallet na TestNet
