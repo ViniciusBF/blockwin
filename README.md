@@ -20,14 +20,12 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 # <strong>📗 Sumário</strong>
 - ## ☑️ [Entregáveis](#entregáveis)
   * [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
+​<br><br>
+- ## ☑️ [Como desenvolver](#como-desenvolver)
   * [A Klever Extension](#a-klever-extension)
   * [Criando sua Wallet na TestNet](#criando-a-wallet-na-testnet)
   * [Demonstração de conexão com extensão](#demonstracao-de-conexao-com-extensão)
   * [Data de entrega](#data-de-entrega)
-​<br><br>
-- ## ☑️ [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-​<br><br>
-- ## ☑️ [Como desenvolver](#como-desenvolver)
   * [Sugestões de aplicações](#sugestões-de-aplicações)
 ​<br><br>
 - ## ☑️ [Links Úteis](#links-uteis)
@@ -50,6 +48,7 @@ extension.
 <br>
 </details>
 ​
+
 ## `A Klever Extension`
 ​<details>
 <summary><strong>Como fazer o download da extensão</strong></summary>
