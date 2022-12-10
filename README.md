@@ -21,6 +21,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 - ## ☑️ [Entregáveis](#entregáveis)
   * [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
   * [A Klever Extension](#a-klever-extension)
+  * [Criando sua Wallet na TestNet](#criando-a-wallet-na-testnet)
   * [Demonstração de conexão com extensão](#demonstracao-de-conexao-com-extensão)
   * [Data de entrega](#data-de-entrega)
 ​<br><br>
@@ -58,20 +59,37 @@ Para efetuar o download da Klever extension:
 3. Crie seu login seguindo os comandos da extensão.
 ```
 
+### Criando sua Wallet na TestNet
+Após fazer o download da Klever Extention é hora de criar Wallet na TestNet:
+1. acesse a seguinte url
+```bash 
+https://kapps-demo-testnet.web.app/connect
+```
+2. Clique em GENERATE NEW ACCOUNT e salve o arquivo .pem
+3. Faça o upload do arquivo .pem salvo na mesma página e clique em REQUEST DAILY KLV
+4. Acesse a Klever Extension e clique em IMPORT WALLET e siga os prompts
+5. A partir daqui sua Wallet estará pronta para ser utilizada
+
+!! Usuários de Linux: Você precisa clicar em inspecionar a extensão enquanto faz o upload do arquivo .pem
 </details>
 ​
+
 
 # Demonstração de conexão com extensão
 ​
 Esta demonstração serve para mostrar de forma prática como se conectar aos provedores suportados pela Extensão Klever 
 ```bash
-https://github.com/klever-io/klever-extension-demo
+https://github.com/tryber/klever-extension-demo
 ```
 
 ## Imagens da extensão
-![Hackaton T22 - Wallet01](./readmeImg/walletImg.jpg) <br>
+![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg) <br>
 
-![Hackaton T22 - Wallet02](./readmeImg/walletImg2.jpg)
+![Hackaton T22 - Wallet02](./img/chromeExtensionImg2.jpg) <br>
+
+![Hackaton T22 - Wallet02](./img/chromeExtensionImg3.jpg) <br>
+
+
 
 ### 📆 `Data de entrega`
 - Data para entrega será no domingo (11/12) até as 14:59 horas.<br>
