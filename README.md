@@ -99,7 +99,7 @@ https://github.com/tryber/klever-extension-demo
 ```
 :warning: 
 * Para que o objeto window.kleverWeb exista na página e necessário que a extensão KleverExtension esteja instalada no navegador e uma carteira associada a extensão.
-* No caso de fazer request a API da klever sempre use a com host testnet
+* No caso de fazer request a API da klever sempre use a url com host testnet e não a mainnet.
 * Você pode usar o pacote @klever/sdk ou @klever/kleverweb para aproveitar as a intelisense do vscode por causa da tipagem do pacote, em substituto ao objeto window.kleverWeb.
 * Deve-se trocar o provider do objeto: window.kleverWeb para o nó e a api de testes, testweb. 
 ```bash 
