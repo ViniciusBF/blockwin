@@ -4,6 +4,7 @@ import { MantineProvider } from '@mantine/core';
 import { Inter } from '@next/font/google';
 import { useEffect } from 'react';
 import { AuthProvider } from '../context/auth';
+import { WalletProvider } from '../context/wallet';
 import initialize from '../services/firebase';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -23,15 +24,17 @@ const App = ({ Component, pageProps }) => {
       }}
     >
       <AuthProvider>
-        <div
-          style={{
-            height: '100%',
-            width: '100%',
-            ...inter.style,
-          }}
-        >
-          <Component {...pageProps} />
-        </div>
+        <WalletProvider>
+          <div
+            style={{
+              height: '100%',
+              width: '100%',
+              ...inter.style,
+            }}
+          >
+            <Component {...pageProps} />
+          </div>
+        </WalletProvider>
       </AuthProvider>
     </MantineProvider>
   );

@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
+    "@klever/kleverweb": "^1.0.3",
+    "@klever/sdk": "^4.1.2",
     "@mantine/core": "^5.9.2",
     "@mantine/form": "^5.9.2",
     "@mantine/hooks": "^5.9.2",

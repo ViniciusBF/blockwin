@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (userData) => {
+    onAuthStateChanged(auth, async (userData) => {
       if (userData) {
         setUser({
           uid: userData.uid,
@@ -65,6 +65,10 @@ export const AuthProvider = ({ children }) => {
           email: userData.email,
           avatar: userData.photoURL,
           data: userData,
+        });
+
+        console.log({
+          token: await getToken(),
         });
 
         setIsSignedIn(true);

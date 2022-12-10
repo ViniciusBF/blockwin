@@ -1,15 +1,13 @@
 import {
-  ActionIcon,
   Avatar,
   Button,
   Group,
-  NumberInput,
   Text,
 } from '@mantine/core';
 import { useContext } from 'react';
-import { FaGoogle, FaRandom } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 import AuthContext from '../context/auth';
-import removeDuplicates from '../utils/numbers';
+import WalletContext from '../context/wallet';
 
 const Home = () => {
   const {
@@ -18,6 +16,7 @@ const Home = () => {
     signIn,
     signOut,
   } = useContext(AuthContext);
+  const { address, balance } = useContext(WalletContext);
 
   return (
     <div>
@@ -37,31 +36,11 @@ const Home = () => {
       )}
       <pre>
         {JSON.stringify({
+          address,
+          balance,
           ...user,
         }, null, 2)}
       </pre>
-      <Group>
-        <NumberInput
-          hideControls
-          parser={(value) => (
-            removeDuplicates(value).replace(/^0| 0|[^\d]/g, '').slice(0, 12)
-          )}
-          formatter={(value) => (
-            !Number.isNaN(value)
-              ? String(value).replace(/[1-9]\d(?=\d)(?!$)/g, '$& ')
-              : ''
-          )}
-          rightSection={(
-            <ActionIcon
-              variant="default"
-              mr={10}
-            >
-              <FaRandom size={14} />
-            </ActionIcon>
-          )}
-        />
-
-      </Group>
     </div>
   );
 };

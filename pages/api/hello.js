@@ -11,7 +11,9 @@ const handler = async (req, res) => {
     data,
   });
 
-  res.status(200).json({ name: 'John Doe' });
+  res.status(200).json({
+    data,
+  });
 };
 
 export default handler;
