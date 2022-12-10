@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--bg-primary);
+}
+
+.header div {
+  display: flex;
+  gap: 1rem;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}

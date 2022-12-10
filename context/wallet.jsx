@@ -47,15 +47,20 @@ export const WalletProvider = ({ children }) => {
     return 0;
   };
 
-  useEffect(() => {
-    const connect = async () => {
-      const accountAddress = await klever.connectWithSdk();
+  // useEffect(() => {
+  //   const connect = async () => {
+  //     const accountAddress = await klever.connectWithSdk();
 
-      setAddress(accountAddress);
-    };
+  //     setAddress(accountAddress);
+  //   };
 
-    connect();
-  }, []);
+  //   connect();
+  // }, []);
+
+  const connectWallet = async () => {
+    const accountAddress = await klever.connectWithSdk();
+    setAddress(accountAddress);
+  };
 
   useEffect(() => {
     updateBalance();
@@ -66,6 +71,7 @@ export const WalletProvider = ({ children }) => {
     balance,
     updateBalance,
     buyTicket,
+    connectWallet,
   }), [address, balance]);
 
   return (
