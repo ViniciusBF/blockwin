@@ -81,6 +81,7 @@ Esta demonstração serve para mostrar de forma prática como se conectar aos pr
 ```bash
 https://github.com/tryber/klever-extension-demo
 ```
+:warning:
 
 ## Imagens da extensão
 ![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg) <br>
