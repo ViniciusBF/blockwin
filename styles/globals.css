@@ -3,6 +3,13 @@
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
+:root {
+  --bg-primary: #000;
+  --bg-secondary: #c2c2c2;
+  --txt-primary: white;
+  --txt-secondary: #121212;
+}
+
 *,
 *::before,
 *::after {
