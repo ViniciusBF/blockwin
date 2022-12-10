@@ -81,7 +81,13 @@ Esta demonstração serve para mostrar de forma prática como se conectar aos pr
 ```bash
 https://github.com/tryber/klever-extension-demo
 ```
-:warning:
+:warning: 
+* Para que o objeto window.kleverWeb exista na página e necessário que a extensão KleverExtension esteja instalada no navegador e uma carteira associada a extensão.
+* No caso de fazer request a API da klever sempre use a com host testnet
+* Você pode usar o pacote @klever/sdk ou @klever/kleverweb para aproveitar as a intelisense do vscode por causa da tipagem do pacote, em substituto ao objeto window.kleverWeb.
+* Deve-se trocar o provider do objeto: window.kleverWeb para o nó e a api de testes, testweb. await window.kleverWeb.setProvider({ node: ‘https://node.testnet.klever.finance’, api: ‘https://api.testnet.klever.finance’, });
+* O erro GET https://api.testnet.klever.finance/v1.0/address/undefined 500, deve-se a carteira não estar logada, verifique clicando no ícone extensão e validando que a carteira foi criada e o password inserido.
+
 
 ## Imagens da extensão
 ![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg) <br>
