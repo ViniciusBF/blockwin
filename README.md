@@ -72,6 +72,8 @@ Para efetuar o download da Klever extension:
 ### Criando sua Wallet na TestNet
 <details>
 <summary><strong>Passo-a-passo de como criar a wallet e adcionar KLV para testes</strong></summary>
+
+
 Após fazer o download da Klever Extention é hora de criar Wallet na TestNet:
 1. acesse a seguinte url
 ```bash 
@@ -89,6 +91,8 @@ https://kapps-demo-testnet.web.app/connect
 </details>
 <details>
 <summary><strong>A Conexão com a Klever Extesion</strong></summary>
+
+
 Esta demonstração serve para mostrar de forma prática como se conectar aos provedores suportados pela Extensão Klever 
 ```bash
 https://github.com/tryber/klever-extension-demo
@@ -110,9 +114,12 @@ await window.kleverWeb.setProvider({ node: ‘https://node.testnet.klever.financ
 <details>
 - Data para entrega será no domingo (11/12) até as 14:59 horas.<br>
 - As apresentações do projeto iniciarão às 15:00 do domingo. Serão aceitas apenas submissões feitas até às 14:59.
-​
-# Instruções para entregar seu projeto
+
 </details>
+
+
+# Instruções para entregar seu projeto
+
 
 ## ‼ Antes de começar a desenvolver
 <details>
