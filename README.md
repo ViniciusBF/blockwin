@@ -37,7 +37,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 
 ## `O que deverá ser desenvolvido`
 <details>
-<summary><strong>O desafio é desenvolver uma aplicação que utilize a Klever Browser Extension:</strong></summary>
+<summary><strong>O desafio é desenvolver uma aplicação FrontEnd que utilize a Klever Browser Extension:</strong></summary>
 ​
 
 - A extensão permite que os usuários listem suas transações, recebam fundos, gerenciem 
@@ -48,7 +48,7 @@ KleverChain Explorer para visualizar cada transação.
 para desenvolver soluções para nosso dia-a-dia em que o usuário possa utilizar a
 extension.
 <br>
-
+</details>
 ​
 ## `A Klever Extension`
 ​<details>
@@ -71,6 +71,8 @@ Para efetuar o download da Klever extension:
 </details>
 
 ### Criando sua Wallet na TestNet
+<details>
+<summary><strong>Passo-a-passo de como criar a wallet e adcionar KLV para testes</strong></summary>
 Após fazer o download da Klever Extention é hora de criar Wallet na TestNet:
 1. acesse a seguinte url
 ```bash 
@@ -82,12 +84,12 @@ https://kapps-demo-testnet.web.app/connect
 5. A partir daqui sua Wallet estará pronta para ser utilizada
 
 !! Usuários de Linux: Você precisa clicar em inspecionar a extensão enquanto faz o upload do arquivo .pem
-</details>
-​
 
 
 # Demonstração de conexão com extensão
-​
+</details>
+<details>
+<summary><strong>A Conexão com a Klever Extesion</strong></summary>
 Esta demonstração serve para mostrar de forma prática como se conectar aos provedores suportados pela Extensão Klever 
 ```bash
 https://github.com/tryber/klever-extension-demo
@@ -101,21 +103,24 @@ https://github.com/tryber/klever-extension-demo
 await window.kleverWeb.setProvider({ node: ‘https://node.testnet.klever.finance’, api: ‘https://api.testnet.klever.finance’, });
 ```
 * O erro GET https://api.testnet.klever.finance/v1.0/address/undefined 500, deve-se a carteira não estar logada, verifique clicando no ícone extensão e validando que a carteira foi criada e o password inserido.
-
+</details>
 
 
 
 ### 📆 `Data de entrega`
+<details>
 - Data para entrega será no domingo (11/12) até as 14:59 horas.<br>
 - As apresentações do projeto iniciarão às 15:00 do domingo. Serão aceitas apenas submissões feitas até às 14:59.
 ​
 # Instruções para entregar seu projeto
+</details>
 
 ## ‼ Antes de começar a desenvolver
-
+<details>
 - Faça o fork desse repositório
 - Adicione @nato-re como colaborador com a `role` mainteiner no repositório de fork criado
 - Leia atentamente o readme e tudo pronto para começar a desenvolver
+</details>
 
 ## 🛠 Como desenvolver
 ​
