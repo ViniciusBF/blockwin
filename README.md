@@ -58,6 +58,13 @@ Para efetuar o download da Klever extension:
 2. Certifique-se que está logado na conta gmail que você forneceu durante a inscrição para o Hackathon.
 3. Crie seu login seguindo os comandos da extensão.
 ```
+## Imagens da extensão
+<p float="left">
+  <img src="./img/chromeExtensionImg1.jpg" width="100" />
+  <img src="./img/chromeExtensionImg2.jpg" width="100" /> 
+  <img src="./img/chromeExtensionImg3.jpg" width="100" />
+</p>
+
 
 ### Criando sua Wallet na TestNet
 Após fazer o download da Klever Extention é hora de criar Wallet na TestNet:
@@ -91,13 +98,6 @@ await window.kleverWeb.setProvider({ node: ‘https://node.testnet.klever.financ
 ```
 * O erro GET https://api.testnet.klever.finance/v1.0/address/undefined 500, deve-se a carteira não estar logada, verifique clicando no ícone extensão e validando que a carteira foi criada e o password inserido.
 
-
-## Imagens da extensão
-![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg) <br>
-
-![Hackaton T22 - Wallet02](./img/chromeExtensionImg2.jpg) <br>
-
-![Hackaton T22 - Wallet02](./img/chromeExtensionImg3.jpg) <br>
 
 
 
