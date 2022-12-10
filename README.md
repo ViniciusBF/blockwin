@@ -184,13 +184,16 @@ social
 http://testnet.kleverscan.org/ <br />
 - Aqui você consegue visualizar todas as transações da na rede Testnet
 </details>
+
 <details>
 <summary><strong> API Testnet Klever Chain </strong></summary><br />
 https://api.testnet.klever.finance/swagger/index.html <br />
 - Todas as informações sobre as carteiras criadas estão aqui
 </details>
+
+<details>
 <summary><strong> Documentação da @klever/sdk  </strong></summary><br />
 https://www.npmjs.com/package/@klever/sdk <br />
 - Todas as informações sobre como conectar via sdk 
-:warning: Exemplo também demostrado na Demo
+- :warning: Exemplo também demostrado na Demo
 </details>
