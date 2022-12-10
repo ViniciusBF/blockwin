@@ -50,8 +50,11 @@ extension.
 <br>
 
 ​
-### `A Klever Extention`
-​
+## `A Klever Extension`
+​<details>
+<summary><strong>Como fazer o download da extensão</strong></summary>
+
+
 Para efetuar o download da Klever extension:
 ```bash
 1. Acesse a url: https://chrome.google.com/webstore/detail/klever-wallet/lmbifcmbofehdpolpdpnlcnanolnlkec
@@ -59,15 +62,13 @@ Para efetuar o download da Klever extension:
 3. Crie seu login seguindo os comandos da extensão.
 ```
 ## Imagens da extensão
-<p float="left">
 
 ![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg) 
 
 ![Hackaton T22 - Wallet02](./img/chromeExtensionImg2.jpg) 
 
 ![Hackaton T22 - Wallet02](./img/chromeExtensionImg3.jpg) 
-
-</p>
+</details>
 
 ### Criando sua Wallet na TestNet
 Após fazer o download da Klever Extention é hora de criar Wallet na TestNet:
