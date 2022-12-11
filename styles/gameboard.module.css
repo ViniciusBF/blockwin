@@ -1,0 +1,21 @@
+.container {
+  background: var(--bg-secondary);
+  padding: 1rem 5rem;
+  color: var(--txt-secondary);
+  margin: 2rem;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jackpot {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.timer span {
+  font-size: 2rem;
+}

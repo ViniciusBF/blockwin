@@ -23,8 +23,8 @@ const App = ({ Component, pageProps }) => {
         colorScheme: 'dark',
       }}
     >
-      <AuthProvider>
-        <WalletProvider>
+      <WalletProvider>
+        <AuthProvider>
           <div
             style={{
               height: '100%',
@@ -34,8 +34,8 @@ const App = ({ Component, pageProps }) => {
           >
             <Component {...pageProps} />
           </div>
-        </WalletProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </WalletProvider>
     </MantineProvider>
   );
 };
