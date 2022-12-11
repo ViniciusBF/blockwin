@@ -11,9 +11,9 @@ const gameSchema = z.object({
   numbers: z
     .number()
     .min(1)
-    .max(60)
+    .max(20)
     .array()
-    .length(6),
+    .length(3),
 });
 
 const handler = async (req, res) => {
@@ -32,17 +32,6 @@ const handler = async (req, res) => {
     } = gameSchema.parse(body);
 
     const data = await validateAuth(token);
-
-    console.log({
-      body,
-      parsedBody: {
-        token,
-        gameId,
-        txHash,
-        numbers,
-      },
-      data,
-    });
 
     await validateGame(gameId);
 

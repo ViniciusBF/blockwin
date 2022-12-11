@@ -88,11 +88,10 @@ export const send = async (to, amount) => {
     },
   ]);
 
-  // FALTA ASSINATURA NO TX, NÃO SEI O QUE FAZER
-  // o dinheiro sai da conta perdi 2k, F
+  const signed = await window.kleverWeb.signTransaction(tx);
 
-  await window.kleverWeb.signTransaction(tx);
-  const res = await window.kleverWeb.broadcastTransactions([tx]);
+  const res = await window.kleverWeb.broadcastTransactions([signed]);
+
   return res;
 };
 

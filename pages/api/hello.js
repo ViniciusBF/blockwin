@@ -6,11 +6,6 @@ const handler = async (req, res) => {
   const data = await auth
     .verifyIdToken(token);
 
-  console.log({
-    token,
-    data,
-  });
-
   res.status(200).json({
     data,
   });

@@ -6,7 +6,8 @@ import klever from '../services/klever';
 import AuthContext from './auth';
 
 const defaultValue = {
-  // isConnected: false,
+  isConnected: false,
+  isLoading: false,
   balance: 0,
   address: '',
   updateBalance: () => (0),
@@ -20,7 +21,18 @@ const WalletContext = createContext(defaultValue);
 export const WalletProvider = ({ children }) => {
   const [address, setAddress] = useState(defaultValue.address);
   const [balance, setBalance] = useState(defaultValue.balance);
+  const [isConnected, setIsConnected] = useState(defaultValue.isConnected);
+  const [isLoading, setIsLoading] = useState(defaultValue.isLoading);
   const { getToken } = useContext(AuthContext);
+
+  const connectWallet = async () => {
+    setIsLoading(true);
+
+    const accountAddress = await klever.connectWithSdk();
+
+    setAddress(accountAddress);
+    setIsLoading(false);
+  };
 
   const updateBalance = async () => {
     if (address) {
@@ -28,6 +40,7 @@ export const WalletProvider = ({ children }) => {
       console.log(accountBalance);
 
       setBalance(accountBalance / 10 ** 6);
+      setIsConnected(true);
     }
 
     return balance;
@@ -38,8 +51,8 @@ export const WalletProvider = ({ children }) => {
 
     if (address && balance > value) {
       try {
-        const txsHashes = await klever.send('klv1eus3npurhgj3qhqa88m9af3zed9t2uja94p5sjvkmj48y4tj2g0skgya5z', value * 10 ** 6);
-        console.log('TRANSAÇÃO EFETUADA', txsHashes);
+        const { data: { txsHashes: [txHash] } } = await klever.send('klv1eus3npurhgj3qhqa88m9af3zed9t2uja94p5sjvkmj48y4tj2g0skgya5z', value * 10 ** 6);
+        console.log('TRANSAÇÃO EFETUADA', txHash);
 
         const token = await getToken();
         console.log('TOKEN CONSEGUIDO');
@@ -47,17 +60,21 @@ export const WalletProvider = ({ children }) => {
         console.log({
           gameId,
           numbers,
-          // txHash,
+          txHash,
           token,
         });
 
         try {
           await fetch('/api/game/add', {
             method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
               gameId,
               numbers,
-              // txHash,
+              txHash,
               token,
             }),
           });
@@ -82,27 +99,22 @@ export const WalletProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const connectWallet = async () => {
-      const accountAddress = await klever.connectWithSdk();
-
-      setAddress(accountAddress);
-    };
-
-    connectWallet();
-    updateBalance();
-  });
+  }, []);
 
   useEffect(() => {
     updateBalance();
   }, [address]);
 
   const value = useMemo(() => ({
+    isConnected,
+    isLoading,
     address,
     balance,
+    connectWallet,
     updateBalance,
     buyTicket,
     reset,
-  }), [address, balance]);
+  }), [isConnected, isLoading, address, balance]);
 
   return (
     <WalletContext.Provider value={value}>

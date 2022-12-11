@@ -1,15 +1,21 @@
+import {
+  Button, Group, Overlay, Stack,
+} from '@mantine/core';
 import { useContext, useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 import GameContext from '../context/game';
 import WalletContext from '../context/wallet';
 import styles from '../styles/bettingBoard.module.css';
 
-const INITIAL_BETS_STATE = ['empty', 'empty', 'empty'];
+const INITIAL_BETS_STATE = ['00', '00', '00'];
 
 const BettingBoard = () => {
   const [bets, setBets] = useState(INITIAL_BETS_STATE);
-  const [myBets] = useState([]);
+  // const [myBets] = useState([]);
   const { currentGameId } = useContext(GameContext);
-  const { buyTicket } = useContext(WalletContext);
+  const {
+    isConnected, isLoading, connectWallet, buyTicket,
+  } = useContext(WalletContext);
 
   const verifyStatusBets = (value) => {
     const betsStatus = bets.some((bet) => (bet === Number(value)));
@@ -21,25 +27,26 @@ const BettingBoard = () => {
   };
 
   const removeBet = (value) => {
-    if (value !== 'empty') {
+    if (value !== '00') {
       const data = [...bets];
       const indexValue = bets.indexOf(Number(value));
-      data.splice(indexValue, 1, 'empty');
+
+      data.splice(indexValue, 1, '00');
+
       setBets(data);
     }
   };
 
   const addNewBet = (value) => {
     const data = [...bets];
-    const firstSlotEmpty = bets.indexOf('empty');
+    const firstSlotEmpty = bets.indexOf('00');
 
     data.splice(firstSlotEmpty, 1, Number(value));
 
     setBets(data);
   };
 
-  const handleBets = ({ target }) => {
-    const { name: value } = target;
+  const handleBets = (value) => {
     const betStatus = verifyStatusBets(value);
 
     if (betStatus) {
@@ -53,89 +60,114 @@ const BettingBoard = () => {
     const buttonNumbersArray = [...Array(20).keys()];
 
     const buttons = buttonNumbersArray.map((key) => (
-      <button
+      <Button
         key={key + 1}
-        name={key + 1}
+        id={key + 1}
         type="button"
-        className={bets.includes(key + 1) ? (
-          styles.buttonUsed
-        ) : (
-          styles.buttonNotUsed
-        )}
-        disabled={!bets.includes('empty') && !bets.includes(key + 1)}
-        onClick={(e) => handleBets(e)}
+        variant={bets.includes(key + 1) ? 'filled' : 'default'}
+        disabled={!bets.includes('00') && !bets.includes(key + 1)}
+        onClick={() => handleBets(key + 1)}
+        sx={(theme) => ({
+          fontFamily: theme.fontFamilyMonospace,
+        })}
       >
-        {key + 1}
-      </button>
+        {`0${key + 1}`.slice(-2)}
+      </Button>
     ));
 
     return buttons;
   };
 
   return (
-    <div className={styles.container}>
+    <Group
+      style={{
+        position: 'relative',
+      }}
+      position="apart"
+
+    >
       <div className={styles.leftBoard}>
         { buttonGenerator() }
       </div>
-      <div className={styles.rightBoard}>
-        <div className={styles.betsRow}>
-          <div>
-            <button
-              key="first-bet"
-              name={bets[0]}
-              type="button"
-              onClick={({ target: { name } }) => removeBet(name)}
-            >
-              {bets[0]}
-            </button>
-            <button
-              name={bets[1]}
-              type="button"
-              onClick={({ target: { name } }) => removeBet(name)}
-            >
-              {bets[1]}
-            </button>
-            <button
-              name={bets[2]}
-              type="button"
-              onClick={({ target: { name } }) => removeBet(name)}
-            >
-              {bets[2]}
-            </button>
-          </div>
-          <button
-            id="clean-button"
-            type="button"
-            onClick={() => handleResetBets()}
-          >
-            Limpar
-          </button>
-        </div>
-        <div>
-          { myBets.length > 0 ? (
+      {/* <Stack justify="space-between" h="100%" w="35%"> */}
+      {/* <ScrollArea
+          sx={{
+            height: '5rem',
+          }}
+        >
+          { myBets.length > 0 && (
             <>
-              <h3>Minhas apostas:</h3>
+              <h3>My bets:</h3>
               {myBets.map((bet, index) => (
                 <p>{`Aposta 0${index + 1}: ${bet[0]}-${bet[1]}-${bet[2]}`}</p>
               ))}
             </>
-          ) : (
-            <p>Ainda não há apostas realizadas nesta rodada</p>
           )}
-        </div>
-        <div>
-          <button
-            disabled={bets.includes('empty')}
+        </ScrollArea> */}
+      <Stack>
+        <Button.Group>
+          {bets.map((bet, index) => (
+            <Button
+              sx={(theme) => ({
+                fontFamily: theme.fontFamilyMonospace,
+              })}
+              key={index}
+              type="button"
+              variant="default"
+              onClick={() => removeBet(bet)}
+            >
+              {`0${bet}`.slice(-2)}
+            </Button>
+          ))}
+          <Button
+            id="clean-button"
             type="button"
-            onClick={() => {
-              buyTicket(currentGameId, bets);
+            onClick={() => handleResetBets()}
+          >
+            <FaTimes />
+          </Button>
+        </Button.Group>
+        <Button
+          disabled={bets.includes('00')}
+          type="button"
+          w="100%"
+          onClick={() => {
+            buyTicket(currentGameId, bets);
+          }}
+        >
+          Buy ticket
+        </Button>
+      </Stack>
+      {/* </Stack> */}
+      { !isConnected && (
+        <>
+          <Overlay
+            blur={1}
+            zIndex={49}
+            opacity={0.5}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 50,
             }}
           >
-            Buy Ticket
-          </button>
-        </div>
-      </div>
-    </div>
+            <Button
+              onClick={connectWallet}
+              loading={isLoading}
+            >
+              Conect wallet
+            </Button>
+          </div>
+        </>
+      )}
+    </Group>
   );
 };
 

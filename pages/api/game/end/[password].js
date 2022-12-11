@@ -1,7 +1,15 @@
 import { randomBytes, randomInt } from 'crypto';
-import { database } from '../../../lib/firebaseAdmin';
+import { database } from '../../../../lib/firebaseAdmin';
 
 const handler = async (req, res) => {
+  const { password } = req.query;
+
+  if (password !== process.env.SERVER_SECRET) {
+    res.status(401).send();
+
+    return;
+  }
+
   // Ver o jogo atual
 
   const currentGame = await database.ref('currentGame').once('value');

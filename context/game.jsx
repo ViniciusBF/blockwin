@@ -12,6 +12,8 @@ import AuthContext from './auth';
 const defaultValue = {
   isLoading: true,
   game: {},
+  amount: 0,
+  players: [],
   currentGameId: '',
 };
 
@@ -20,6 +22,8 @@ const GameContext = createContext(defaultValue);
 export const GameProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(defaultValue.isLoading);
   const [game, setGame] = useState(defaultValue.game);
+  const [amount, setAmount] = useState(defaultValue.amount);
+  const [players, setPlayers] = useState(defaultValue.players);
   const [currentGameId, setCurrentGameId] = useState(defaultValue.currentGameId);
   const { isSignedIn } = useContext(AuthContext);
 
@@ -27,8 +31,19 @@ export const GameProvider = ({ children }) => {
     if (isSignedIn) {
       setIsLoading(false);
 
-      getCurrentGame(({ gameId, ...data }) => {
+      getCurrentGame(({
+        gameId,
+        pool,
+        players: playerData,
+        ...data
+      }) => {
+        const avatars = playerData
+          ? Object.entries(playerData).map(([, { avatar }]) => ({ avatar }))
+          : [];
+
+        setPlayers(avatars);
         setGame(data);
+        setAmount(pool);
         setCurrentGameId(gameId);
       });
     }
@@ -37,8 +52,10 @@ export const GameProvider = ({ children }) => {
   const value = useMemo(() => ({
     isLoading,
     game,
+    amount,
+    players,
     currentGameId,
-  }), [isLoading, game, currentGameId]);
+  }), [isLoading, game, amount, players, currentGameId]);
 
   return (
     <GameContext.Provider value={value}>
