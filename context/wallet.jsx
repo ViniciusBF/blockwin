@@ -22,15 +22,10 @@ export const WalletProvider = ({ children }) => {
   const [balance, setBalance] = useState(defaultValue.balance);
   const { getToken } = useContext(AuthContext);
 
-  const connectWallet = async () => {
-    const accountAddress = await klever.connectWithSdk();
-
-    setAddress(accountAddress);
-  };
-
   const updateBalance = async () => {
     if (address) {
       const accountBalance = await klever.balance();
+      console.log(accountBalance);
 
       setBalance(accountBalance / 10 ** 6);
     }
@@ -41,26 +36,10 @@ export const WalletProvider = ({ children }) => {
   const buyTicket = async (gameId, numbers) => {
     const value = 1000;
 
-    if (!address) {
-      console.log('NÃO EXISTE UM ADDRESS');
-      await connectWallet();
-      console.log('PRONTO, PEGUEI UM ADDRESS PRA TI');
-      await updateBalance();
-      console.log('SALDO ATUALIZADO!');
-    }
-
-    console.log('Ó, FICA LIGADO QUE É HORA DA REVISÃO');
-    console.log({
-      address,
-      addressExists: !!address,
-      balanceGtValue: balance > value,
-    });
-
     if (address && balance > value) {
-      console.log('PERFEITO, TUDO PRONTO PRA TRANSAÇÃO');
       try {
-        const { txsHashes: [txHash] } = await klever.send('klv1eus3npurhgj3qhqa88m9af3zed9t2uja94p5sjvkmj48y4tj2g0skgya5z', value * 10 ** 6);
-        console.log('TRANSAÇÃO EFETUADA');
+        const txsHashes = await klever.send('klv1eus3npurhgj3qhqa88m9af3zed9t2uja94p5sjvkmj48y4tj2g0skgya5z', value * 10 ** 6);
+        console.log('TRANSAÇÃO EFETUADA', txsHashes);
 
         const token = await getToken();
         console.log('TOKEN CONSEGUIDO');
@@ -68,7 +47,7 @@ export const WalletProvider = ({ children }) => {
         console.log({
           gameId,
           numbers,
-          txHash,
+          // txHash,
           token,
         });
 
@@ -78,7 +57,7 @@ export const WalletProvider = ({ children }) => {
             body: JSON.stringify({
               gameId,
               numbers,
-              txHash,
+              // txHash,
               token,
             }),
           });
@@ -103,6 +82,17 @@ export const WalletProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    const connectWallet = async () => {
+      const accountAddress = await klever.connectWithSdk();
+
+      setAddress(accountAddress);
+    };
+
+    connectWallet();
+    updateBalance();
+  });
+
+  useEffect(() => {
     updateBalance();
   }, [address]);
 
@@ -111,7 +101,6 @@ export const WalletProvider = ({ children }) => {
     balance,
     updateBalance,
     buyTicket,
-    connectWallet,
     reset,
   }), [address, balance]);
 
