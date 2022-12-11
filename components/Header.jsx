@@ -1,9 +1,9 @@
+import { Avatar, Button, Menu } from '@mantine/core';
 import Link from 'next/link';
-import { Button, Menu } from '@mantine/core';
 import { useContext } from 'react';
-import styles from '../styles/header.module.css';
-import WalletContext from '../context/wallet';
 import AuthContext from '../context/auth';
+import WalletContext from '../context/wallet';
+import styles from '../styles/header.module.css';
 
 const Header = () => {
   const { balance } = useContext(WalletContext);
@@ -21,7 +21,7 @@ const Header = () => {
         </div>
         <Menu shadow="md">
           <Menu.Target>
-            <img src={user.avatar} width={30} alt={user.name} />
+            <Avatar src={user.avatar} />
           </Menu.Target>
 
           <Menu.Dropdown>

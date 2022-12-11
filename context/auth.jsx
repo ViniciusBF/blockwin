@@ -9,14 +9,12 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, {
   createContext,
-  useContext,
   useEffect,
   useMemo,
   useState,
 } from 'react';
 import { auth } from '../services/firebase';
 import setCookie from '../utils/cookies';
-import WalletContext from './wallet';
 
 const defaultValue = {
   isSignedIn: false,
@@ -30,7 +28,7 @@ const defaultValue = {
   },
   signIn: () => {},
   signOut: () => {},
-  getToken: () => (''),
+  getToken: async () => (''),
 };
 
 const AuthContext = createContext(defaultValue);
@@ -39,7 +37,6 @@ export const AuthProvider = ({ children }) => {
   const [isSignedIn, setIsSignedIn] = useState(defaultValue.isSignedIn);
   const [isLoading, setIsLoading] = useState(defaultValue.isLoading);
   const [user, setUser] = useState(defaultValue.user);
-  const { connectWallet, reset } = useContext(WalletContext);
   const router = useRouter();
 
   const getToken = async () => {
@@ -61,8 +58,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signOut = async () => {
-    signOutUser(auth);
-    reset();
+    await signOutUser(auth);
+
     router.push('/');
   };
 
@@ -77,21 +74,21 @@ export const AuthProvider = ({ children }) => {
           data: userData,
         });
 
-        console.log({
-          token: await getToken(),
-        });
-
         setIsSignedIn(true);
-        setIsLoading(false);
-        connectWallet();
       } else {
         setUser(defaultValue.user);
 
         setIsSignedIn(false);
-        setIsLoading(false);
       }
     });
-    getRedirectResult(auth);
+
+    const getResult = async () => {
+      await getRedirectResult(auth);
+
+      setIsLoading(false);
+    };
+
+    getResult();
   }, []);
 
   const value = useMemo(() => ({
@@ -101,7 +98,7 @@ export const AuthProvider = ({ children }) => {
     signIn,
     signOut,
     getToken,
-  }), [isSignedIn, user]);
+  }), [isSignedIn, isLoading, user]);
 
   return (
     <AuthContext.Provider value={value}>

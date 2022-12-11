@@ -1,22 +1,21 @@
 import {
-  Button,
+  Button, LoadingOverlay,
 } from '@mantine/core';
-import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import AuthContext from '../context/auth';
-import WalletContext from '../context/wallet';
 import styles from '../styles/home.module.css';
 
 const SignIn = () => {
-  const { signIn } = useContext(AuthContext);
-  const { address } = useContext(WalletContext);
-  const Router = useRouter();
+  const { isLoading, isSignedIn, signIn } = useContext(AuthContext);
+  const router = useRouter();
 
   useEffect(() => {
-    if (address) {
-      Router.push('/game');
+    if (isSignedIn) {
+      router.push('/game');
     }
-  }, [address]);
+  }, [isSignedIn]);
 
   return (
     <div className={styles.container}>
@@ -24,17 +23,13 @@ const SignIn = () => {
       <Button.Group>
         <Button
           onClick={signIn}
-          variant="gradient"
-          gradient={{
-            from: 'teal',
-            to: 'blue',
-            deg: 60,
-          }}
+          variant="outline"
+          leftIcon={<FcGoogle />}
         >
-          <img src="/google.svg" alt="google" width={30} />
           Sign In
         </Button>
       </Button.Group>
+      <LoadingOverlay visible={isLoading} overlayBlur={2} />
     </div>
   );
 };

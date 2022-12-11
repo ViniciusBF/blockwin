@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
+import GameContext from '../context/game';
+import WalletContext from '../context/wallet';
 import styles from '../styles/bettingBoard.module.css';
 
 const INITIAL_BETS_STATE = ['empty', 'empty', 'empty'];
 
 const BettingBoard = () => {
   const [bets, setBets] = useState(INITIAL_BETS_STATE);
-  const [myBets, setMyBets] = useState([]);
-
-  useEffect(() => {
-  }, [bets, myBets]);
+  const [myBets] = useState([]);
+  const { currentGameId } = useContext(GameContext);
+  const { buyTicket } = useContext(WalletContext);
 
   const verifyStatusBets = (value) => {
     const betsStatus = bets.some((bet) => (bet === Number(value)));
@@ -31,13 +32,16 @@ const BettingBoard = () => {
   const addNewBet = (value) => {
     const data = [...bets];
     const firstSlotEmpty = bets.indexOf('empty');
+
     data.splice(firstSlotEmpty, 1, Number(value));
+
     setBets(data);
   };
 
   const handleBets = ({ target }) => {
     const { name: value } = target;
     const betStatus = verifyStatusBets(value);
+
     if (betStatus) {
       removeBet(value);
     } else {
@@ -46,8 +50,9 @@ const BettingBoard = () => {
   };
 
   const buttonGenerator = () => {
-    const buttomNumbersArray = [...Array(20).keys()];
-    const buttons = buttomNumbersArray.map((key) => (
+    const buttonNumbersArray = [...Array(20).keys()];
+
+    const buttons = buttonNumbersArray.map((key) => (
       <button
         key={key + 1}
         name={key + 1}
@@ -63,6 +68,7 @@ const BettingBoard = () => {
         {key + 1}
       </button>
     ));
+
     return buttons;
   };
 
@@ -83,7 +89,6 @@ const BettingBoard = () => {
               {bets[0]}
             </button>
             <button
-              key="second-bet"
               name={bets[1]}
               type="button"
               onClick={({ target: { name } }) => removeBet(name)}
@@ -91,7 +96,6 @@ const BettingBoard = () => {
               {bets[1]}
             </button>
             <button
-              key="third-bet"
               name={bets[2]}
               type="button"
               onClick={({ target: { name } }) => removeBet(name)}
@@ -100,7 +104,6 @@ const BettingBoard = () => {
             </button>
           </div>
           <button
-            key="clean-button"
             id="clean-button"
             type="button"
             onClick={() => handleResetBets()}
@@ -122,8 +125,11 @@ const BettingBoard = () => {
         </div>
         <div>
           <button
-            key="buy-ticket"
+            disabled={bets.includes('empty')}
             type="button"
+            onClick={() => {
+              buyTicket(currentGameId, bets);
+            }}
           >
             Buy Ticket
           </button>

@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable no-unused-vars */
+import { useState } from 'react';
 import Countdown from 'react-countdown';
 import styles from '../styles/gameboard.module.css';
+import BettingBoard from './BettingBoard';
 
 const renderer = ({
   minutes, seconds, completed,
@@ -53,7 +55,7 @@ const GameBoard = () => {
           <Countdown date={Date.now() + timer} renderer={renderer} />
         </div>
       </div>
-      <div>div do joão</div>
+      <BettingBoard />
     </div>
   );
 };
