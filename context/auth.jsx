@@ -8,7 +8,11 @@ import {
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React, {
-  createContext, useContext, useEffect, useMemo, useState,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
 } from 'react';
 import { auth } from '../services/firebase';
 import setCookie from '../utils/cookies';

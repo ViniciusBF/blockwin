@@ -1,17 +1,17 @@
 import { getRandomInt } from '../../../utils/numbers';
 
 const handler = async () => {
-  let numbers = [];
+  const numbers = [];
 
-  while (numbers.length < 6) {
-    const number = getRandomInt(10, 99);
+  while (numbers.length < 3) {
+    const number = getRandomInt(1, 20);
 
     if (!numbers.includes(number)) {
       numbers.push(number);
     }
   }
 
-  numbers = numbers.sort((a, b) => (a - b));
+  numbers.sort((a, b) => (a - b));
 
   return new Response(
     JSON.stringify([

@@ -1,4 +1,4 @@
-import { auth } from '../../lib/firebase';
+import { auth } from '../../lib/firebaseAdmin';
 
 const handler = async (req, res) => {
   const { token } = req.cookies;
