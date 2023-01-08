@@ -1,229 +1,34 @@
-# 🔆 <strong>Boas vindas ao repositório do Hackathon T22!</strong>
 
-![Hackaton T22](./img/06-LOGO.png)
+# BlockWin - Loteria de Criptomoedas
 
-## 🛑 <strong>Termos de uso</strong>
+BlockWin é uma loteria de criptomoedas que oferece aos jogadores a chance de ganhar prêmios em criptomoedas! É um jogo simples e intuitivo que usa a tecnologia Blockchain para garantir a segurança dos jogadores.
 
-​
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
-​<br>
+A plataforma foi desenvolvida usando as tecnologias Next.js, Firebase Realtime Database, Firebase Firestore, Cloudflare Workers, Zod, Javascript, CSS e Klever Extension e Klever API.
 
-## 🚫 <strong>Regras </strong>
+## Como funciona
 
-- Ao participar deste evento você concorda em:
-  > 01 - Respeitar o Código de Conduta da Trybe<br>
-  > 02 - Não violar os princípios de fair play<br>
-  > 03 - Não pedir ou receber apoio de qualquer pessoa fora do evento<br>
-  > 04 - É esperada a contribuição de todos os membros do grupo no desenvolvimento<br>
-  > 05 - Todos os membros do grupo devem, obrigatoriamente, estar na apresentação do projeto no dia 11/12.<br>
-  > <br>
+BlockWin é um jogo de loteria on-line que oferece ao jogador a chance de ganhar prêmios em criptomoedas.
 
-# <strong>📗 Sumário</strong>
+O jogador deve escolher 3 números dentre 20 e a cada 15 minutos é sorteado o prêmio. Caso ninguém acerte o valor, o prêmio acumula para o próximo sorteio.
 
-- ## ☑️ [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-    ​<br><br>
-- ## ☑️ [Como desenvolver](#como-desenvolver)
-  - [A Klever Extension](#a-klever-extension)
-  - [Criando sua Wallet na TestNet](#criando-a-wallet-na-testnet)
-  - [Demonstração de conexão com extensão](#demonstracao-de-conexao-com-extensão)
-  - [Data de entrega](#data-de-entrega)
-  - [Sugestões de aplicações](#sugestões-de-aplicações)
-    ​<br><br>
-- ## ☑️ [Links Úteis](#links-uteis)
-  ​
+Todas as transações são rastreadas na blockchain, tornando o jogo seguro e transparente. O jogador pode verificar as informações de qualquer sorteio a qualquer momento, garantindo que o jogo seja justo.
 
-# 📝 Entregáveis
+## Segurança
 
-​
+BlockWin usa a tecnologia da blockchain para garantir a segurança dos jogadores. Todas as transações são registradas na blockchain, tornando o jogo seguro e transparente.
 
-## `O que deverá ser desenvolvido`
+Além disso, a plataforma BlockWin usa a tecnologia Cloudflare Workers para proteger os jogadores de ataques DDoS e outras formas de hacking. Isso garante que os jogadores possam jogar com tranquilidade e segurança.
 
-<details>
-<summary><strong>O desafio é desenvolver uma aplicação FrontEnd que utilize a Klever Browser Extension:</strong></summary>
-​
+## Prêmios
 
-- A extensão permite que os usuários listem suas transações, recebam fundos, gerenciem
-  várias contas, gerem e redefinam suas contas e, mais importante, integrem-no ao
-  KleverChain Explorer para visualizar cada transação.
-  ​
-- Devido as facilidades que a Klever Extension nos entrega, o objetivo é utilizar a criatividade
-para desenvolver soluções para nosso dia-a-dia em que o usuário possa utilizar a
-extension.
-<br>
-</details>
-​
+Os prêmios da BlockWin são criptomoedas KLV. O valor do prêmio pode variar, dependendo do número de jogadores e do valor acumulado.
 
-## `A Klever Extension`
+Nossa loteria usar a Klever API e a Klever Extension para realizar as transações. Isso permite que os jogadores tenham segurança e praticidade.
 
-​<details>
+## Conclusão
 
-<summary><strong>Como fazer o download da extensão</strong></summary>
+BlockWin é uma loteria de criptomoedas que oferece aos jogadores a chance de ganhar prêmios em criptomoedas. A plataforma usa a tecnologia blockchain para garantir a segurança dos jogadores e oferecer prêmios em criptomoedas reais.
 
-Para efetuar o download da Klever extension:
+Além disso, o uso da Klever API e da Klever Extension permite aos jogadores acompanhar os prêmios em tempo real. Isso garante que os jogadores estejam sempre informados sobre as ofertas atuais.
 
-```bash
-1. Acesse a url: https://chrome.google.com/webstore/detail/klever-wallet/lmbifcmbofehdpolpdpnlcnanolnlkec
-2. Certifique-se que está logado na conta gmail que você forneceu durante a inscrição para o Hackathon.
-3. Crie seu login seguindo os comandos da extensão.
-```
-
-## Imagens da extensão
-
-![Hackaton T22 - Wallet01](./img/chromeExtensionImg1.jpg)
-
-![Hackaton T22 - Wallet02](./img/chromeExtensionImg2.jpg)
-
-![Hackaton T22 - Wallet02](./img/chromeExtensionImg3.jpg)
-
-</details>
-
-### :moneybag: Criando sua Wallet na TestNet
-
-<details>
-<summary><strong>Passo-a-passo de como criar a wallet e adcionar KLV para testes</strong></summary>
-
-Após fazer o download da Klever Extention é hora de criar Wallet na TestNet:
-
-1. acesse a seguinte url
-
-```bash
-https://kapps-demo-testnet.web.app/connect
-```
-
-2. Clique em GENERATE NEW ACCOUNT e salve o arquivo .pem
-3. Faça o upload do arquivo .pem salvo na mesma página e clique em REQUEST DAILY KLV
-4. Acesse a Klever Extension e clique em IMPORT WALLET e siga os prompts
-5. A partir daqui sua Wallet estará pronta para ser utilizada
-
-!! Usuários de Linux: Você precisa clicar em inspecionar a extensão enquanto faz o upload do arquivo .pem
-
-# :desktop_computer: Demonstração de conexão com extensão
-
-</details>
-<details>
-<summary><strong>A Conexão com a Klever Extesion</strong></summary>
-
-Esta demonstração serve para mostrar de forma prática como se conectar aos provedores suportados pela Extensão Klever
-
-```bash
-https://github.com/tryber/klever-extension-demo
-```
-
-:warning:
-
-- Para que o objeto window.kleverWeb exista na página e necessário que a extensão KleverExtension esteja instalada no navegador e uma carteira associada a extensão.
-- No caso de fazer request a API da klever sempre use a url com host testnet e não a mainnet.
-- Você pode usar o pacote @klever/sdk ou @klever/kleverweb para aproveitar as a intelisense do vscode por causa da tipagem do pacote, em substituto ao objeto window.kleverWeb.
-- Deve-se trocar o provider do objeto: window.kleverWeb para o nó e a api de testes, testweb.
-
-```bash
-await window.kleverWeb.setProvider({ node: ‘https://node.testnet.klever.finance’, api: ‘https://api.testnet.klever.finance’, });
-```
-
-- O erro GET https://api.testnet.klever.finance/v1.0/address/undefined 500, deve-se a carteira não estar logada, verifique clicando no ícone extensão e validando que a carteira foi criada e o password inserido.
-</details>
-
-### 📆 `Data de entrega`
-
-<details>
-- Data para entrega será no domingo (11/12) até as 14:59 horas.<br>
-- As apresentações do projeto iniciarão às 15:00 do domingo. Serão aceitas apenas submissões feitas até às 14:59.
-
-</details>
-
-# Instruções para entregar seu projeto
-
-## ‼ Antes de começar a desenvolver
-
-<details>
-- Faça o fork desse repositório
-- Adicione @nato-re como colaborador com a `role` mainteiner no repositório de fork criado
-- Leia atentamente o readme e tudo pronto para começar a desenvolver
-</details>
-
-## 🛠 Como desenvolver
-
-​
-Este repositório não conta com branches para cada grupo, e sim deve ser criado um repositório de fork.
-O código final deve ficar na branch principal deste repositório. Portanto o código deve ser desenvolvido a partir do fork.
-​
-
-# **Sugestões** de aplicações
-
-​
-
-## ⚽️ Jogos
-
-<details>
-  <summary><strong>🤑 Mega-Sena </strong></summary><br />
-
-- O jogador deve escolher 6 números dentre 60
-- Deve ser feita uma transação para confirmar a aposta
-- Com a aposta confirmada, exibir os números selecionados e executar o sorteio
-- O usuário ganha se sair seus 6 números sorteados dentre os 60
-- Caso tenha ganho, exibir para o usuário quanto ele ganhou e que uma
-  transação será feita com o valor
-- Caso não ganhe exibir uma mensagem e uma opção para tentar novamente
-  </details>
-  <details>
-
-    <summary><strong>🔖 Raspadinha </strong></summary><br />
-
-- O jogador deve comprar uma raspadinha
-- cada raspadinha possui 5 estrelas cinzas
-- Deve ser feita uma transação para confirmar a compra
-- Com a aposta confirmada, executar o sorteio
-- O usuário ganha se sair 3 estrelas da mesma cor, teremos 3 possíveis cores
-  (azul, verde e amarelo)
-- Caso tenha ganho, exibir para o usuário quanto ele ganhou e que uma
-  transação será feita com o valor
-- Caso não ganhe exibir uma mensagem e uma opção para tentar novamente
-</details>
-
-<details>
-  <summary><strong>🩳 Loja Virtual </strong></summary><br />
-
-- Criar uma página com listagem de produtos
-- Ao clicar em um produto deve ir para a página de detalhe do produto
-- nome, images, descrição, valor, botão de compra
-- Quando o usuário clicar para comprar, deve ser feita uma transação para confirmar a
-  compra
-- Ao confirmar a transação deve exibir uma mensagem de confirmação de compra
-</details>
-
-<details>
-  <summary><strong>🙏 Doação </strong></summary><br />
-
-- Criar uma página para uma causa social instituição receber doação para uma causa
-  social
-- imagens
-- descrição e ações da causa
-- quem apoia
-- valor total já foi doado
-- exibir últimas doações
-- botão de doação
-- O usuário pode doar através de uma transação
-- Exibir uma mensagem de agradecimento
-</details>
-
-## Links Úteis
-
-<details>
-  <summary><strong> Testnet </strong></summary><br />
-http://testnet.kleverscan.org/ <br />
-- Aqui você consegue visualizar todas as transações da na rede Testnet
-</details>
-
-<details>
-<summary><strong> API Testnet Klever Chain </strong></summary><br />
-https://api.testnet.klever.finance/swagger/index.html <br />
-- Todas as informações sobre as carteiras criadas estão aqui
-</details>
-
-<details>
-<summary><strong> Documentação da @klever/sdk  </strong></summary><br />
-https://www.npmjs.com/package/@klever/sdk <br />
-- Todas as informações sobre como conectar via sdk 
-- :warning: Exemplo também demostrado na Demo
-</details>
+Se você está procurando por um jogo de loteria de criptomoedas seguro e transparente, então BlockWin é a opção certa para você. Aproveite e boa sorte!
