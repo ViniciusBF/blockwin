@@ -4,6 +4,9 @@ import { database } from '../../../../lib/firebaseAdmin';
 const handler = async (req, res) => {
   const { password } = req.query;
 
+  // eslint-disable-next-line no-console
+  console.time('end game');
+
   if (password !== process.env.SERVER_SECRET) {
     res.status(401).send();
 
@@ -69,6 +72,16 @@ const handler = async (req, res) => {
 
   await database.ref(`games/${currentGameId}/result`).set(numbers.join('-'));
 
+  // Se o jogo não tiver nenhum ticket comprado, o exclui dos registros
+
+  const ticketQtyData = await database.ref(`games/${currentGameId}/ticketQty`).once('value');
+
+  const ticketQty = ticketQtyData.val();
+
+  if (ticketQty === 0) {
+    await database.ref(`games/${currentGameId}`).remove();
+  }
+
   // Criar um novo jogo
 
   const newGameId = randomBytes(8).toString('hex');
@@ -79,7 +92,10 @@ const handler = async (req, res) => {
 
   date.setSeconds(0);
 
-  date.setMinutes(date.getMinutes() + 15);
+  // date.setMinutes(date.getMinutes() + 15);
+  date.setMinutes(0);
+
+  date.setHours(date.getHours() + 2);
 
   await database.ref(`games/${newGameId}`).set({
     end: date.toISOString(),
@@ -93,6 +109,9 @@ const handler = async (req, res) => {
   // Marcar novo jogo como atual
 
   await database.ref('currentGame').set(newGameId);
+
+  // eslint-disable-next-line no-console
+  console.timeEnd('end game');
 
   res.status(200).json({
     newGameId,

@@ -30,7 +30,7 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "firebase": "^9.15.0",
-    "firebase-admin": "^11.3.0",
+    "firebase-admin": "^11.4.1",
     "framer-motion": "^7.6.19",
     "next": "13.0.6",
     "next-seo": "^5.15.0",

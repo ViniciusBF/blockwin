@@ -37,16 +37,16 @@ const handler = async (req, res) => {
 
     await validateHash(txHash);
 
-    database.ref(`games/${gameId}/tickets`).push().set({
-      timestamp: ServerValue.TIMESTAMP,
-      userId: data.uid,
-      avatar: data.picture,
-      numbers: numbers.sort((a, b) => (a - b)).join('-'),
-    });
-
-    database.ref(`games/${gameId}/ticketQty`).set(ServerValue.increment(1));
-
-    database.ref('pool').set(ServerValue.increment(1000 * 0.8));
+    await Promise.all([
+      database.ref(`games/${gameId}/tickets`).push().set({
+        timestamp: ServerValue.TIMESTAMP,
+        userId: data.uid,
+        avatar: data.picture,
+        numbers: numbers.sort((a, b) => (a - b)).join('-'),
+      }),
+      database.ref(`games/${gameId}/ticketQty`).set(ServerValue.increment(1)),
+      database.ref('pool').set(ServerValue.increment(1000 * 0.8)),
+    ]);
 
     await firestore.collection('hashes').add({
       hash: txHash,
