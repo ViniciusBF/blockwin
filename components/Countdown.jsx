@@ -60,6 +60,8 @@ const Countdown = ({ time }) => {
           fontFamily: theme.fontFamilyMonospace,
         })}
         >
+          <span>{`0${remainingTime.hours}`.slice(-2)}</span>
+          <span>:</span>
           <span>{`0${remainingTime.minutes}`.slice(-2)}</span>
           <span>:</span>
           <span>{`0${remainingTime.seconds}`.slice(-2)}</span>
